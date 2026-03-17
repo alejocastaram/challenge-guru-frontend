@@ -1,4 +1,3 @@
-import React from "react";
 import Select, { type SingleValue } from "react-select";
 import type { TeamOption } from "./team-option";
 import { TEAMS } from "./teams";

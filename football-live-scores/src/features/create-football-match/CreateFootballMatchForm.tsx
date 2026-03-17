@@ -7,40 +7,41 @@ import { BackButton } from '../../components/common/back-button/BackButton'
 import TeamSelect from '../../components/common/team-select/TeamSelect'
 
 export function CreateFootballMatchForm() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [form, setForm] = useState<CreateFootballMatchRequest>({
     localTeam: '',
     localTeamImageUrl: '',
     awayTeam: '',
     awayTeamImageUrl: '',
     stadium: '',
-  })
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [success, setSuccess] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = e.target
     setForm((prev) => ({ ...prev, [name]: value }))
-  }
+  };
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (event) => {
-    event.preventDefault()
-    setIsSubmitting(true)
-    setError(null)
-    setSuccess(null)
+    event.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+    setSuccess(null);
 
     try {
-      await createFootballMatch(form)
-      setSuccess('Partido creado correctamente')
+      await createFootballMatch(form);
+      setSuccess('Partido creado correctamente');
+      navigate("/");
     } catch (err) {
-      console.error(err)
-      setError('Ocurrió un error al crear el partido')
+      console.error(err);
+      setError('Ocurrió un error al crear el partido');
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
   }
 
@@ -163,4 +164,3 @@ export function CreateFootballMatchForm() {
     </>
   )
 }
-

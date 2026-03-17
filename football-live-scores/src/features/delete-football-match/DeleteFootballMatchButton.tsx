@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ConfirmDeleteModal } from "./ConfirmDeleteModal";
 import type { DeleteFootballRequest } from "./delete-football-match-request";
 import { deleteFootballMatch } from "../../api/footballMatchClient";
-import { data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface DeleteFootballMatchProps {
     request: DeleteFootballRequest;

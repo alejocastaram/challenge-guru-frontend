@@ -66,10 +66,9 @@ export function CreateFootballMatchForm() {
                     <TeamSelect
                       label="Selecciona un equipo"
                       value={form.localTeam}
-                      onChange={(value) =>
-                        setForm((prev) => ({ ...prev, localTeam: value }))
-                      }
-                    />
+                      onChange={(value, logo) => setForm((prev) => ({ ...prev, localTeam: value, localTeamImageUrl: logo }))}
+                      logo={''}
+                      />
                   </div>
                 </div>
 
@@ -80,10 +79,9 @@ export function CreateFootballMatchForm() {
                   <TeamSelect
                     label="Selecciona un equipo"
                     value={form.awayTeam}
-                    onChange={(value) =>
-                      setForm((prev) => ({ ...prev, awayTeam: value }))
-                    }
-                  />
+                    onChange={(value, logo) => setForm((prev) => ({ ...prev, awayTeam: value, awayTeamImageUrl: logo }))}
+                    logo=''
+                    />
                 </div>
 
                 <div className="col-12 col-md-6">

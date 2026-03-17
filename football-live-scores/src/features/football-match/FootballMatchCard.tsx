@@ -3,6 +3,7 @@ import { BackButton } from "../../components/common/back-button/BackButton";
 import type { FootballMatch } from "./football-match";
 import "./FootballMatchCard.css";
 import { UpdateScoreButton } from "../update-score/UpdateScoreButton";
+import { DeleteFootballMatchButton } from "../delete-football-match/DeleteFootballMatchButton";
 
 export function FootballMatchCard({ }: {}) {
     const location = useLocation();
@@ -15,6 +16,13 @@ export function FootballMatchCard({ }: {}) {
             <BackButton />
             <div className="container py-5">
                 <div className="card bg text p-4 rounded">
+                    <div className="d-flex">
+                        <DeleteFootballMatchButton request={{
+                            localTeam: match?.localTeam,
+                            awayTeam: match?.awayTeam,
+                            matchDate: match?.matchDate.split('T')[0]
+                        }}></DeleteFootballMatchButton>
+                    </div>
 
                     <div className="d-flex justify-content-between align-items-center">
 

@@ -2,10 +2,11 @@ import { useLocation } from "react-router-dom";
 import { BackButton } from "../../components/common/back-button/BackButton";
 import type { FootballMatch } from "./football-match";
 import "./FootballMatchCard.css";
+import { UpdateScoreButton } from "../update-score/UpdateScoreButton";
 
 export function FootballMatchCard({ }: {}) {
     const location = useLocation();
-    const match:FootballMatch = location.state?.match;
+    const match: FootballMatch = location.state?.match;
 
     const date = new Date(match.matchDate).toLocaleDateString();
 
@@ -23,12 +24,12 @@ export function FootballMatchCard({ }: {}) {
                         </div>
 
                         <div className="text-center">
-                            <button
-                                type="submit"
-                                className="btn btn-outline-dark"
-                            >
-                                {'Gooool'}
-                            </button>
+                            <UpdateScoreButton request={{
+                                localTeam: match?.localTeam,
+                                awayTeam: match?.awayTeam,
+                                matchDate: match?.matchDate.split('T')[0],
+                                scorerTeam: match?.localTeam
+                            }}></UpdateScoreButton>
                         </div>
 
                         <div className="text-center">
@@ -45,12 +46,12 @@ export function FootballMatchCard({ }: {}) {
                         </div>
 
                         <div className="text-center">
-                            <button
-                                type="submit"
-                                className="btn btn-outline-dark"
-                            >
-                                {'Gooool'}
-                            </button>
+                            <UpdateScoreButton request={{
+                                localTeam: match?.localTeam,
+                                awayTeam: match?.awayTeam,
+                                matchDate: match?.matchDate.split('T')[0],
+                                scorerTeam: match?.awayTeam
+                            }}></UpdateScoreButton>
                         </div>
 
                     </div>

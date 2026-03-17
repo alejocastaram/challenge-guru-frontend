@@ -1,4 +1,5 @@
 import type { CreateFootballMatchRequest } from '../features/create-football-match/create-football-match-request'
+import type { UpdateScoreRequest } from '../features/update-score/update-score-request'
 import { httpClient } from './httpClient'
 
 export async function createFootballMatch(payload: CreateFootballMatchRequest) {
@@ -11,3 +12,7 @@ export async function getFootballMatch(localTeam: string, awayTeam: string, matc
   return data
 }
 
+export async function updateScore(payload: UpdateScoreRequest) {
+  const { data } = await httpClient.put('/api/football-match', payload)
+  return data
+}

@@ -72,7 +72,6 @@ export default function SearchFootballMatch() {
               }
             />
     
-            {/* Botón */}
             <button
               className="btn btn-primary d-flex align-items-center gap-2"
               onClick={handleSearch}

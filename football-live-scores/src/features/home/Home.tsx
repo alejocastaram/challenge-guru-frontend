@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import SearchFootballMatch from '../search-football-match/SearchFootballMatch'
 
 export function Home() {
   const navigate = useNavigate()
@@ -23,16 +24,22 @@ export function Home() {
               Bienvenido, crea y gestiona tus partidos de fútbol en segundos.
             </p>
           </div>
+        </div>
+      </div>
 
-          <div className="d-flex justify-content-center">
-            <button
-              type="button"
-              className="btn btn-primary btn-lg"
-              onClick={() => navigate('/create-football-match')}
-            >
-              Create Football Match
-            </button>
-          </div>
+      <div className="row justify-content-center">
+        <SearchFootballMatch></SearchFootballMatch>
+      </div>
+
+      <div className="row justify-content-center">
+        <div className="d-flex justify-content-center">
+          <button
+            type="button"
+            className="btn btn-primary btn-lg"
+            onClick={() => navigate('/create-football-match')}
+          >
+            Create Football Match
+          </button>
         </div>
       </div>
     </main>
